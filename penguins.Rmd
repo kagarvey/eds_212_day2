@@ -16,9 +16,26 @@ glimpse(penguins)
 ## Scatterplot of body mass versus flipper length 
 ```{r}
 ggplot(data= penguins, aes(x=body_mass_g, y = flipper_length_mm))+
-         geom_point(aes(color=species, size=4)) 
+         geom_point(aes(color=species), size=1) +
+  facet_wrap(~island) +
+  theme_minimal()+
+  labs (x="Body Mass (g)",
+        y="Flipper Length (mm)")
   
 ```
+
+
+```{r}
+##species on the x-axis, flipper length on the y-axis
+ggplot(data= penguins, aes(x=species, y = flipper_length_mm))+
+         geom_jitter(aes(color=species), size=1) +
+  theme_minimal()+
+  labs (x="Species",
+        y="Flipper Length (mm)",
+        title= "Palmer Penguins Species by Flipper Length (mm)")
+
+```
+
 
 
 
