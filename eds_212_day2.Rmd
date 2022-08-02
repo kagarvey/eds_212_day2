@@ -1,0 +1,38 @@
+---
+title: "EDS 212 Day 2 Part 1 Derivatives and Git Intro"
+author: "Kelly Garvey"
+date: '2022-08-02'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Derivatives in R 
+Find the derivatives of $f(x) = 5x^2$
+```{r}
+ex_1<- expression(5 * x ^ 2)
+
+my_deriv <- deriv(ex_1, "x")
+my_deriv
+
+## I want to find the sope at x=2.8
+x<- 2.8
+eval(my_deriv)
+```
+
+Find the slope of $g(z)=2z^3-10.5z^2+4.1$
+
+```{r}
+gz <- expression(2 * z ^ 3 - 10.5 * z ^ 2 + 4.1)
+
+dg_dz <-D(gz, "z")
+dg_dz
+
+## Lets evaluate the slope over range of values 
+z <- seq(from= -3, to = 4, by = 0.5)
+
+eval(dg_dz)
+```
+
